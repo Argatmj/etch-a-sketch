@@ -60,11 +60,14 @@ sizeBtn.addEventListener("change", () => {
     createGrid(sizeBtn.value);
 });
 
-rbBtn.addEventListener("click",() => random = true);
+rbBtn.addEventListener("click",() => {
+    darkens = false;
+    random = true;
+});
 
 opacBtn.addEventListener("click", () => {
     random = false;    
-    darkens = true
+    darkens = true;
 });
 
 eraseBtn.addEventListener("click", () => {
