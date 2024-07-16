@@ -26,9 +26,23 @@ function createGrid(num) {
 }
 
 let colourBtn = document.querySelector(".select");
+let sizeBtn = document.querySelector(".size");
 let clearBtn = document.querySelector("#clear");
 let eraseBtn = document.querySelector("#erase");
 let selectedColor = '';
+
+sizeBtn.addEventListener("mousemove",() => {
+    let nums = document.querySelectorAll(".num");
+    nums.forEach(num => num.innerHTML = sizeBtn.value);
+});
+
+sizeBtn.addEventListener("change", () => {
+    let container = document.querySelector(".container");
+    let allCells = document.querySelectorAll(".cells");
+   allCells.forEach(cell => container.removeChild(cell));
+
+    createGrid(sizeBtn.value);
+});
 
 eraseBtn.addEventListener("click", () => selectedColor = "white");
 
@@ -41,4 +55,6 @@ clearBtn.addEventListener("click", () => {
     });
 });
 
-createGrid(30);
+window.onload = () => {
+    createGrid(10);
+}
